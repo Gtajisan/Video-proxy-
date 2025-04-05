@@ -4,10 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Farhan's Video Proxy VPN</title>
+    <!-- Include TailwindCSS from CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Include Framer Motion for animations (if needed) -->
     <script src="https://unpkg.com/framer-motion/dist/framer-motion.umd.js"></script>
+    <!-- Include Lucide icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide@latest/dist/lucide.min.css">
     <style>
+      /* Your custom styles for the page */
       body {
         background: linear-gradient(to bottom right, #000000, #1f2937);
         color: white;
@@ -48,7 +52,7 @@
       option::before {
         margin-right: 5px;
       }
-      /* Glowing Animation */
+      /* Glowing Animation for highlighted title */
       .highlighted-title {
         text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff, 0 0 20px #ff00ff, 0 0 25px #ff00ff, 0 0 30px #ff00ff, 0 0 35px #ff00ff;
         animation: glow 1.5s ease-in-out infinite alternate;
@@ -61,7 +65,7 @@
           text-shadow: 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff, 0 0 50px #ff00ff;
         }
       }
-      /* Progress Bar */
+      /* Progress Bar for buffering */
       .progress-bar-container {
         width: 100%;
         background-color: #374151;
@@ -156,13 +160,11 @@
         const progressBar = document.getElementById("progressBar");
         const progressContainer = document.querySelector(".progress-bar-container");
 
-        // Check if the video URL is valid
         if (!url || !isValidUrl(url)) {
           alert("Please enter a valid video URL.");
           return;
         }
 
-        // Check if a VPN country is selected
         if (!country) {
           alert("Please select a VPN country.");
           return;
@@ -172,7 +174,6 @@
         button.disabled = true;
         button.innerText = "Buffering...";
 
-        // Show progress bar
         progressContainer.style.display = "block";
 
         let progress = 0;
@@ -189,7 +190,6 @@
           }
         }, 200);
 
-        // Hide progress bar after streaming
         setTimeout(() => {
           progressContainer.style.display = "none";
         }, 5000);
